@@ -18,10 +18,12 @@
 
 
 @if ($errors->any())
-<div class="alert alert-danger">
+<div>
 <ul>
 @foreach ($errors->all() as $error)
-<li>{{ $error }}</li>
+
+<?php toastr()->closeButton()->timeOut(10000)->addError($error);
+?>
 @endforeach
 </ul>
 </div>
