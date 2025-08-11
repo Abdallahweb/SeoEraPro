@@ -27,15 +27,19 @@
 <div class="col-12 col-md-6 col-lg-12">
 
 
+
 @if ($errors->any())
-<div class="alert alert-danger">
+<div>
 <ul>
 @foreach ($errors->all() as $error)
-<li>{{ $error }}</li>
+
+<?php toastr()->closeButton()->timeOut(10000)->addError($error);
+?>
 @endforeach
 </ul>
 </div>
 @endif
+
 
 <form class="" method="POST" action="{{url('update_post',$edit_post->id)}}">
 @csrf
